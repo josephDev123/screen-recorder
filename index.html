@@ -12,11 +12,22 @@
 <body>
     <div class="container">
         <h2>Screen Recorder</h2>
-        <div class="blank_black_board"></div>
-        <div class="record_wrapper">
-            <div class="record"></div>
+        <div class="blank_black_board" id="blank_black_board"></div>
+        <div class="record_wrapper" id="record_wrapper">
+            <div class="record" id="record"></div>
         </div>
-        <video id="vid" src=""></video>
+        <!-- <video  src=""></video> -->
+        <video id="vid_wrapper" autoplay controls width="500">
+
+            <!-- <source id='vid' src=""
+                    type="video/webm">
+        
+            <source id='vid' src=""
+                    type="video/mp4">
+        
+            Sorry, your browser doesn't support embedded videos. -->
+        </video>
+
         <div class="play_pause_downlaod_wrapper">
             <div class="play"><i class="fa fa-play-circle fa-2x" style='cursor: pointer; color: green;'></i></div>
             <div class="pause"><i class="fa fa-pause-circle fa-2x" style='cursor: pointer;'></i></div>

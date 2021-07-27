@@ -47,6 +47,10 @@ body{
     background-color: black; 
 }
 
+#vid_wrapper{
+    display: none;
+}
+
 .play_pause_downlaod_wrapper{
     display: flex;
     justify-content: center;
@@ -76,4 +80,5 @@ body{
     100%{
         transform: scale(1.5, 1.5);
     }
+  
 }
