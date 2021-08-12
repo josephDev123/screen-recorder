@@ -11,14 +11,14 @@
 </head>
 <body>
     <div class="container">
-        <h2>Screen Recorder</h2>
+        <h1>Screen Recorder</h1>
         <div id="message"></div>
         <div class="blank_black_board" id="blank_black_board"></div>
         <div class="record_wrapper" id="record_wrapper">
             <div class="record" id="record"><i style='color:red' class="fa fa-camera-retro"></i></div>
         </div>
         <!-- <video  src=""></video> -->
-        <video id="screenRecording_vid" autoplay controls width="500">
+        <video id="screenRecording_vid" autoplay controls width="600" height="600">
 
             <!-- <source id='vid' src=""
                     type="video/webm">
@@ -30,7 +30,7 @@
         </video>
 
 
-        <video id="recorded_vid_wrapper" autoplay controls width="500" style='margin-top:10px'>
+        <video id="recorded_vid_wrapper" autoplay controls width="600" height="600" style='display:none'>
 
             <!-- <source id='vid' src=""
                     type="video/webm">
@@ -41,7 +41,7 @@
             Sorry, your browser doesn't support embedded videos. -->
         </video>
 
-        <div class="play_pause_downlaod_wrapper">
+        <div class="play_pause_downlaod_wrapper" style='display:none'>
             <button class="play"><i class="fa fa-play-circle fa-2x" style='cursor: pointer;'></i></button>
             <button class="pause"><i class="fa fa-pause-circle fa-2x" style='cursor: pointer;'></i></button>
             <button class="download"><i class="fa fa-download fa-2x" style='cursor: pointer;'></i></button>
