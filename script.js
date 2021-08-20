@@ -13,6 +13,7 @@ pause_el.disabled =true;
 download_el.disabled =true;
 
 let stream;
+let audio;
 let mediaRecorder;
 
  
@@ -30,7 +31,16 @@ const gdmOptions = {
     }
   }
 
+  //play the recorded video
+    play_el.onclick=()=>{
+      recorded_vid_wrapperel_el.play();
+    }
+//pause the recorded video
+    pause_el.onclick=()=>{
+      recorded_vid_wrapperel_el.pause();
+    }
 
+ 
   function displayCaptureStreamToCaptureVideoEl(mediaRecorder){
     screenRecording_vid_el.style.display ='block';
     screenRecording_vid_el.srcObject = mediaRecorder;
@@ -41,6 +51,8 @@ const gdmOptions = {
     let recordedObj =[];
       mediaRecorder = await new MediaRecorder(stream);
       mediaRecorder.start();
+     
+      // console.log(mediaRecorder);
       mediaRecorder.ondataavailable = (e)=>{
         if (e.data) {
           recordedObj.push(e.data);
@@ -49,23 +61,31 @@ const gdmOptions = {
 
       mediaRecorder.onstop =()=>{
         const blob = new Blob(recordedObj, {type:recordedObj[0].type})
-        console.log(recordedObj);
         recorded_vid_wrapperel_el.src = URL.createObjectURL(blob);
         screenRecording_vid_el.style.display ='none';
         recorded_vid_wrapperel_el.style.display ='block';
         recorded_vid_wrapperel_el.style.display ='block';
         document.querySelector('.play_pause_downlaod_wrapper').style.display ='block';
+        play_el.disabled =false;
+        pause_el.disabled =false;
+        download_el.disabled =false;
       }
 
   }
   
+  // async function audioCapture(){
+    
+  // }
 
   
   async function screenCapture(){
     
     try {
       stream = await navigator.mediaDevices.getDisplayMedia(gdmOptions);
-      //  stopState(mediaRecorder);
+      // audio = await navigator.mediaDevices.getUserMedia({audio:{ noiseSuppression: true,
+      //   echoCancellation: true}});
+      // var audioTrack = audio.getAudioTracks()[0];
+      // stream.addTrack(audioTrack);
       displayCaptureStreamToCaptureVideoEl(stream);
       changeCapturedStreamToRecordedMedia(stream);
      
@@ -79,6 +99,6 @@ record_el.onclick = ()=>{
     record_wrapper_el.remove();
     // play_el.disabled =true
      screenCapture();
-    
+    // audioCapture()
 }
 
