@@ -52,10 +52,10 @@ const gdmOptions = {
 
   async function changeCapturedStreamToRecordedMedia(stream){
     let recordedObj =[];
+    //keeping track recording stream for usage
       mediaRecorder = await new MediaRecorder(stream);
       mediaRecorder.start();
      
-      // console.log(mediaRecorder);
       mediaRecorder.ondataavailable = (e)=>{
         if (e.data) {
           recordedObj.push(e.data);
@@ -80,10 +80,6 @@ const gdmOptions = {
     
     try {
       stream = await navigator.mediaDevices.getDisplayMedia(gdmOptions);
-      // audio = await navigator.mediaDevices.getUserMedia({audio:{ noiseSuppression: true,
-      //   echoCancellation: true}});
-      // var audioTrack = audio.getAudioTracks()[0];
-      // stream.addTrack(audioTrack);
       displayCaptureStreamToCaptureVideoEl(stream);
       changeCapturedStreamToRecordedMedia(stream);
      
@@ -95,8 +91,7 @@ const gdmOptions = {
 record_el.onclick = ()=>{
     blank_black_board_el.remove();
     record_wrapper_el.remove();
-    // play_el.disabled =true
      screenCapture();
-    // audioCapture()
+   
 }
 
