@@ -9,8 +9,8 @@ const play_el = document.querySelector('.play');
 const pause_el = document.querySelector('.pause');
 const download_el = document.querySelector('.download');
 play_el.disabled =true;
-pause_el.disabled =true;
-download_el.disabled =true;
+// pause_el.disabled =true;
+
 
 let stream;
 let audio;
@@ -33,13 +33,16 @@ const gdmOptions = {
 
   //play the recorded video
     play_el.onclick=()=>{
+      play_el.style.opacity =0;
       recorded_vid_wrapperel_el.play();
-    }
-//pause the recorded video
-    pause_el.onclick=()=>{
-      recorded_vid_wrapperel_el.pause();
+      pause_el.style.opacity = 1;
     }
 
+    pause_el.onclick=()=>{
+      play_el.style.opacity =1;
+      recorded_vid_wrapperel_el.pause();
+      pause_el.style.opacity = 0;
+    }
  
   function displayCaptureStreamToCaptureVideoEl(mediaRecorder){
     screenRecording_vid_el.style.display ='block';
@@ -67,17 +70,12 @@ const gdmOptions = {
         recorded_vid_wrapperel_el.style.display ='block';
         document.querySelector('.play_pause_downlaod_wrapper').style.display ='block';
         play_el.disabled =false;
-        pause_el.disabled =false;
-        download_el.disabled =false;
+        // pause_el.disabled =false;
+       
       }
 
   }
-  
-  // async function audioCapture(){
-    
-  // }
 
-  
   async function screenCapture(){
     
     try {
