@@ -18,6 +18,6 @@ Capture screen at ease and perfecting without using heavyweight tool.
 [Go to the site](https://screenrecorder123.netlify.app/)
 
 ## Author
-[Joseph Uzuegbu](https://screenrecorder123.netlify.app/)
+[Joseph Uzuegbu](https://github.com/josephDev123)
 
 
